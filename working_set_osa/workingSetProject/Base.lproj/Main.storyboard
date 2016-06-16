@@ -970,7 +970,7 @@ Gw
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1nN-eV-wjg">
-                                    <rect key="frame" x="1" y="-15" width="0.0" height="15"/>
+                                    <rect key="frame" x="1" y="-16" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="KJC-R4-p6q">
@@ -985,6 +985,10 @@ Gw
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="DeleteButton" destination="IWs-lh-7HB" id="0kS-rD-yyQ"/>
+                        <outlet property="EditButton" destination="kgU-9J-WEA" id="Onr-UQ-pBE"/>
+                        <outlet property="NewButton" destination="adG-NL-aXZ" id="ML5-Yb-gtb"/>
+                        <outlet property="OpenButton" destination="0ai-7B-qJk" id="dy3-Oy-BgR"/>
                         <outlet property="statusLabel" destination="cX4-0O-9gv" id="l9A-vI-DsF"/>
                         <outlet property="tableView" destination="CKV-CO-lbX" id="rXS-MU-M0M"/>
                     </connections>

@@ -17,7 +17,6 @@ class Open_WS_Window: NSViewController {
     
     @IBOutlet weak var nameOfWS: NSTextField!
     
-    var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +27,8 @@ class Open_WS_Window: NSViewController {
     @IBAction func dismissOpenWindow(sender: NSButton) {
         
        let smartFolder = "\(filePath)\(nameOfWS.stringValue)"
-       //let fm = NSFileManager.defaultManager()
-        //fm.createDirectoryAtPath(smartFolder, withIntermediateDirectories: true , attributes: nil)
-        
+     
         NSWorkspace.sharedWorkspace().selectFile(nil, inFileViewerRootedAtPath: smartFolder)
-        
         
         let application = NSApplication.sharedApplication()
         application.stopModal()

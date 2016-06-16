@@ -12,31 +12,22 @@ import CoreData
 class ViewController: NSViewController {
 
     
+    /*Outlets for Buttons*/
+    @IBOutlet weak var NewButton: NSButton!
+    @IBOutlet weak var OpenButton: NSButton!
+    @IBOutlet weak var EditButton: NSButton!
+    @IBOutlet weak var DeleteButton: NSButton!
     
-    
+    /*Outlets for Table View*/
     @IBOutlet weak var statusLabel: NSTextField!
-    
-    
     @IBOutlet weak var tableView: NSTableView!
     
     
     
-    @IBOutlet weak var pluralNounPopup: NSPopUpButton!
-    var pluralNouns: [String]!
-    
+    /*Variables*/
     var nameOfWS: String!
-    
     var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
     
-    /*
-     
-     1) NSManagedObject represents a single object stored in Core Data- you must use it to create, edit, save and 
-     delete from your Core Data persisitsnt store.
-     
-     2) NSManagedObject can be characterized as a "shape-shifter", meaning that it can take the form of any entity 
-     within the data model, appropriating whatever attributes and relationships that you have defined.
-     
-     */
     
     
     override func viewDidLoad() {
@@ -44,9 +35,9 @@ class ViewController: NSViewController {
         tableView.setDelegate(self)
         tableView.setDataSource(self)
         tableView.target = self
- 
-        tableView.doubleAction = #selector(ViewController.tableViewDoubleClick(_:))
-        // Do any additional setup after loading the view.
+        OpenButton.enabled = false
+        EditButton.enabled = false
+        DeleteButton.enabled = false
     }
     
     
@@ -54,8 +45,7 @@ class ViewController: NSViewController {
         
         
         //1
-        let appDelegate =
-            NSApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
         //2
@@ -87,94 +77,39 @@ class ViewController: NSViewController {
         {
             text = "\(itemsSelected) of \(workingSets.count) selected"
         }
+        OpenButton.enabled = true
+        EditButton.enabled = true
+        DeleteButton.enabled = true
+
         // 3
         statusLabel.stringValue = text
        
+       /////////////////////
+        let item = workingSets[tableView.selectedRow]
+        
+        if(tableView.selectedRow >= 0){
+            
+        }
+        else{
+            return
+        }
+        
+        
+        
+        nameOfWS = item.valueForKey("smartFOlder") as? String
+
     }
     
     
     func tableViewDoubleClick(sender: AnyObject) {
         
-        
-        //1
-        let appDelegate =
-            NSApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: "Working_Set")
-        //3
-        do {
-            let results =
-                try managedContext.executeFetchRequest(fetchRequest)
-            workingSets = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-        
-        
-        
-        
-        
-        
-        
-        // 1
-        /*guard tableView.selectedRow >= 0 , let item = workingSets[tableView.selectedRow] else {
-            return
-        }*/
-        
-        
-        
-         
-         let item = workingSets[tableView.selectedRow]
-         
-         if(tableView.selectedRow >= 0){
-         
-         }
-         else{
-            return
-         }
-        
-        
-        
-        nameOfWS = item.valueForKey("smartFOlder") as? String
-        
-        //print(nameOfWS)
-        /*if item.isFolder {
-            // 2
-            self.representedObject = item.url
-        } else {
-            // 3  
-            NSWorkspace.sharedWorkspace().openURL(item.url)
-        }*/
     }
     
     override func awakeFromNib() {
         
-        // Setup the pop up button with plural nouns
-        /*var pluralNouns: [String]!
-        let directory1 = "/Users/Osa/Desktop/input"
-        let directory2 = "/Users/Osa/Desktop/MadLibs"
-        let directory3 = "/Users/Osa/Desktop/testModal"
-        let directory4 = "/Users/Osa/Desktop/RWStore"*/
-        
-        
-        
-        //pluralNouns = [directory1, directory2, directory3, directory4]
-        //pluralNounPopup.removeAllItems()
-       //pluralNounPopup.addItemsWithTitles(pluralNouns)
-        //pluralNounPopup.selectItemAtIndex(0)
     }
     
-    /*
-     
-     func reloadFileList() {
-     directoryItems = directory?.contentsOrderedBy(sortOrder, ascending: sortAscending)
-     tableView.reloadData()
-     }
-     
-     
-     */
+    
     
     
     
@@ -212,16 +147,6 @@ class ViewController: NSViewController {
         }
         reloadFileList()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     @IBAction func openWindow(sender: AnyObject) {
@@ -279,6 +204,11 @@ class ViewController: NSViewController {
             let application = NSApplication.sharedApplication()
             application.runModalForWindow(delWS_Window)
         }
+        
+        OpenButton.enabled = false
+        EditButton.enabled = false
+        DeleteButton.enabled = false
+        
         reloadFileList()
  
     }
@@ -300,15 +230,8 @@ class ViewController: NSViewController {
     
 }
 
-//Creates an extenstion that conforms to the NSTableViewDataSource protocol
-//and implements the required the method numberOfRowsInTableView(_:) to return the number
-//of 'Working Sets' which are of the size of 'workingSets' array.
-
 extension ViewController : NSTableViewDataSource {
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        
-        
-        
         
         //1
         let appDelegate =
@@ -325,9 +248,6 @@ extension ViewController : NSTableViewDataSource {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        
-        
-        
         
         return workingSets.count ?? 0
     }
@@ -338,38 +258,12 @@ extension ViewController : NSTableViewDelegate {
     func tableViewSelectionDidChange(notification: NSNotification) {
         updateStatus()
     }
+    
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-       // var image:NSImage?
+       
         var text:String = ""
         var cellIdentifier: String = ""
-        //print("Meow")
-        // 1
-        
-        /*
-         
-         6/8/2016 2:04 PM
-        ------------------
-            I may need to include more of the CoreData functionality here to fetch a specific member.
-         
-         */
-        
-        /*guard let item = workingSets[row] else {
-            return nil
-        }*/
-        
-                /*
-         
-         
-        
-         
-         
-         6/8/2016 2:05 PM
-         ------------------
-         Here I may replace guard statement with a statement to test if the count for "workingSets" array is == 0.
-         
-         */
-        
         
         
         //1
@@ -388,8 +282,7 @@ extension ViewController : NSTableViewDelegate {
             print("Could not fetch \(error), \(error.userInfo)")
         }
 
-        //print (row)
-        //let item = workingSets[row]
+        /////////////
         var value = workingSets[row].valueForKey("smartFOlder") as? String
         
         
@@ -406,11 +299,7 @@ extension ViewController : NSTableViewDelegate {
         } else if tableColumn == tableView.tableColumns[1] {
             text = "Value"
             cellIdentifier = "DateCellID"
-        } /*else if tableColumn == tableView.tableColumns[2] {
-            text = item.isFolder ? "--" : sizeFormatter.stringFromByteCount(item.size)
-            cellIdentifier = "SizeCellID"
-        }*/
-        
+        }
         // 3
         if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text

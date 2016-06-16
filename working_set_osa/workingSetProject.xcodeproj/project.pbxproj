@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */; };
 		4C908F591D07CAD9006CC134 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F581D07CAD9006CC134 /* WindowController.swift */; };
 		4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F5A1D07CAE2006CC134 /* Directory.swift */; };
 		4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C9390E71D04EF2500A43DB9 /* workingSetProject.xcdatamodeld */; };
@@ -19,9 +20,12 @@
 		4CAEB4C01D03638A00F35870 /* Edit_WS_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4BF1D03638A00F35870 /* Edit_WS_Window.swift */; };
 		4CAEB4C21D0363B300F35870 /* Open_WS_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4C11D0363B300F35870 /* Open_WS_Window.swift */; };
 		4CAEB4C41D0363CB00F35870 /* Delete_WS_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */; };
+		4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E001D124A29007252A2 /* New_WS_Function.swift */; };
+		4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_WS_Function.swift; sourceTree = "<group>"; };
 		4C908F581D07CAD9006CC134 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4C908F5A1D07CAE2006CC134 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		4C9390E81D04EF2500A43DB9 /* workingSetProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = workingSetProject.xcdatamodel; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		4CAEB4BF1D03638A00F35870 /* Edit_WS_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_WS_Window.swift; sourceTree = "<group>"; };
 		4CAEB4C11D0363B300F35870 /* Open_WS_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Open_WS_Window.swift; sourceTree = "<group>"; };
 		4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Window.swift; sourceTree = "<group>"; };
+		4CB16E001D124A29007252A2 /* New_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New_WS_Function.swift; sourceTree = "<group>"; };
+		4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Function.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */,
+				4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */,
 			);
 			name = Delete_WS_Window;
 			sourceTree = "<group>";
@@ -73,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAEB4BF1D03638A00F35870 /* Edit_WS_Window.swift */,
+				4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */,
 			);
 			name = Edit_WS_Window;
 			sourceTree = "<group>";
@@ -89,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAEB4BD1D0361B500F35870 /* New_WS_Window.swift */,
+				4CB16E001D124A29007252A2 /* New_WS_Function.swift */,
 			);
 			name = New_WS_Window;
 			sourceTree = "<group>";
@@ -205,11 +214,14 @@
 			files = (
 				4CAEB4C21D0363B300F35870 /* Open_WS_Window.swift in Sources */,
 				4CAEB4BE1D0361B500F35870 /* New_WS_Window.swift in Sources */,
+				4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */,
 				4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */,
 				4CAEB4AC1D03608200F35870 /* ViewController.swift in Sources */,
 				4C908F591D07CAD9006CC134 /* WindowController.swift in Sources */,
 				4CAEB4C41D0363CB00F35870 /* Delete_WS_Window.swift in Sources */,
 				4CAEB4AA1D03608200F35870 /* AppDelegate.swift in Sources */,
+				4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */,
+				4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */,
 				4CAEB4AE1D03608200F35870 /* Document.swift in Sources */,
 				4CAEB4C01D03638A00F35870 /* Edit_WS_Window.swift in Sources */,
 				4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */,
