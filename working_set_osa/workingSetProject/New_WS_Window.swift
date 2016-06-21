@@ -27,7 +27,7 @@ class New_WS_Window: NSViewController {
         let application = NSApplication.sharedApplication()
         
         addNewMember(nameOfWS.stringValue)
-        
+      
         application.stopModal()
         
     }
@@ -36,7 +36,7 @@ class New_WS_Window: NSViewController {
         
         let application = NSApplication.sharedApplication()
         
-        application.abortModal()
+        application.stopModal()
         
     }
 }

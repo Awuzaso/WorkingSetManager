@@ -22,6 +22,7 @@
 		4CAEB4C41D0363CB00F35870 /* Delete_WS_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */; };
 		4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E001D124A29007252A2 /* New_WS_Function.swift */; };
 		4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */; };
+		4CB16E051D134B03007252A2 /* LaunchWindow_New_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Window.swift; sourceTree = "<group>"; };
 		4CB16E001D124A29007252A2 /* New_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New_WS_Function.swift; sourceTree = "<group>"; };
 		4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Function.swift; sourceTree = "<group>"; };
+		4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchWindow_New_Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				4CAEB4BD1D0361B500F35870 /* New_WS_Window.swift */,
 				4CB16E001D124A29007252A2 /* New_WS_Function.swift */,
+				4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */,
 			);
 			name = New_WS_Window;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */,
 				4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */,
 				4CAEB4AE1D03608200F35870 /* Document.swift in Sources */,
+				4CB16E051D134B03007252A2 /* LaunchWindow_New_Button.swift in Sources */,
 				4CAEB4C01D03638A00F35870 /* Edit_WS_Window.swift in Sources */,
 				4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */,
 			);

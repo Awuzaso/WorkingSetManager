@@ -111,39 +111,36 @@ class ViewController: NSViewController {
     
     
     
-    
-    
-    
     @IBAction func newWindow(sender: AnyObject) {
         
         // 1
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let newWindowController = storyboard.instantiateControllerWithIdentifier("New WS") as! NSWindowController
     
-        if let newWS_Window = newWindowController.window/*, textStorage = text.textStorage */{
+        if let newWS_Window = newWindowController.window{
             
-            // 2
-            /*let wordCountViewController = wordCountWindow.contentViewController as! WordCountViewController
-            wordCountViewController.wordCount.stringValue = "\(textStorage.words.count)"
-            wordCountViewController.paragraphCount.stringValue = "\(textStorage.paragraphs.count)"*/
-            
+          
             // 3
             let application = NSApplication.sharedApplication()
             
             let session = application.beginModalSessionForWindow(newWS_Window)
-            //let response = application.runModalSession(session)
         
-            for(;;){
+            var value:Bool = false
             
-                if( application.runModalSession(session) != NSModalResponseContinue ){
-                    
-                    break
+            while(value == false){
+            
+                if( application.runModalSession(session) == NSModalResponseStop ){
+                    print("Closing.")
+                    value = true
                 }
+                
+              
             }
             
-            //application.runModalForWindow(newWS_Window)
             application.endModalSession(session)
-            application.stopModal()
+            
+            print("Out of loop")
+          
         }
         reloadFileList()
     }

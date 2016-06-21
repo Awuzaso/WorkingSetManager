@@ -31,7 +31,6 @@ class Edit_WS_Window: NSViewController {
     @IBAction func dismissEditWindow(sender: NSButton) {
         
         let application = NSApplication.sharedApplication()
-        
         editWSFunc(nameOfWS.stringValue)
         application.stopModal()
     }

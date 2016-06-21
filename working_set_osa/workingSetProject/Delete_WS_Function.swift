@@ -38,7 +38,8 @@ func DeleteFunc(nameOfWS: String){
         for managedObject in result {
             
             managedContext.deleteObject(managedObject as! NSManagedObject)
-            
+            saveFetchRequest(managedContext)
+
             
         }
     } catch{

@@ -21,12 +21,14 @@ class Delete_WS_Window: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+                   // Do view setup here.
     }
     
     
     @IBAction func DeleteNewWindow(sender: NSButton) {
         let application = NSApplication.sharedApplication()
+        
+        
         
         DeleteFunc(nameOfWS.stringValue)
 
