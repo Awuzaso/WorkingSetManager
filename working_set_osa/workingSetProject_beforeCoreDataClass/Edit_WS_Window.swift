@@ -14,8 +14,7 @@ import Cocoa
 class Edit_WS_Window: NSViewController {
 
    let editWindowObject = windowManager()
-   
-    var oldWSname = "Value"
+    
 
     
     @IBOutlet weak var nameOfWS: NSTextField!
@@ -27,7 +26,7 @@ class Edit_WS_Window: NSViewController {
     
     
     @IBAction func dismissEditWindow(sender: NSButton) {
-        editWSFunc(oldWSname, new_nameOfWS: nameOfWS.stringValue)
+        editWSFunc(nameOfWS.stringValue)
         editWindowObject.setWindow()
     }
     

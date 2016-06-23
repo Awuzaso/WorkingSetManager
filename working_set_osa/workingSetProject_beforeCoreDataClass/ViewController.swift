@@ -12,7 +12,6 @@ import CoreData
 class ViewController: NSViewController {
 
     
-    
     /*Outlets for Buttons*/
     @IBOutlet weak var NewButton: NSButton!
     @IBOutlet weak var OpenButton: NSButton!
@@ -30,28 +29,34 @@ class ViewController: NSViewController {
     var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
     
     
-    /*Set-up View*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         tableView.setDelegate(self)
         tableView.setDataSource(self)
         tableView.target = self
         OpenButton.enabled = false
         EditButton.enabled = false
         DeleteButton.enabled = false
+        
+        
+        
+        /////////////////
+        
+
+            
+         
     }
     
-    
-   
     
     func updateStatus() {
         
         
-        //Convert into a function.
         //1
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        //let managedContext = appDelegate.managedObjectContext
-        let managedContext = appDelegate.coreDataObject.managedObjectContext
+        let managedContext = appDelegate.managedObjectContext
        // let val = appDelegate.dataMember
         //2
         let fetchRequest = NSFetchRequest(entityName: "Working_Set")
@@ -63,11 +68,10 @@ class ViewController: NSViewController {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-            //Output workingSets
-        
+
        
         
-        // Convert into a function.
+        
         let text:String
         // 1
         let itemsSelected = tableView.selectedRowIndexes.count
@@ -83,7 +87,6 @@ class ViewController: NSViewController {
         {
             text = "\(itemsSelected) of \(workingSets.count) selected"
         }
-            //Output text
         OpenButton.enabled = true
         EditButton.enabled = true
         DeleteButton.enabled = true
@@ -102,15 +105,15 @@ class ViewController: NSViewController {
         }
         
         
-        //Selected Value
+        
         nameOfWS = item.valueForKey("smartFOlder") as? String
 
     }
     
-    /*
+    
     func tableViewDoubleClick(sender: AnyObject) {
+        
     }
-    */
     
     override func awakeFromNib() {
         
@@ -183,7 +186,7 @@ class ViewController: NSViewController {
             // 2
             let edit_WS_WindowController = editWS_Window.contentViewController as! Edit_WS_Window
              edit_WS_WindowController.nameOfWS.stringValue = nameOfWS
-             edit_WS_WindowController.oldWSname = nameOfWS
+            
             // 3
             let application = NSApplication.sharedApplication()
             application.runModalForWindow(editWS_Window)
@@ -217,7 +220,6 @@ class ViewController: NSViewController {
  
     }
     
-   
     func reloadFileList() {
         //directoryItems = directory?.contentsOrderedBy(sortOrder, ascending: sortAscending)
         tableView.reloadData()
@@ -241,8 +243,8 @@ extension ViewController : NSTableViewDataSource {
         //1
         let appDelegate =
             NSApplication.sharedApplication().delegate as! AppDelegate
-        //let managedContext = appDelegate.managedObjectContext
-        let managedContext = appDelegate.coreDataObject.managedObjectContext
+        let managedContext = appDelegate.managedObjectContext
+        
         //2
         let fetchRequest = NSFetchRequest(entityName: "Working_Set")
         //3
@@ -274,8 +276,8 @@ extension ViewController : NSTableViewDelegate {
         //1
         let appDelegate =
             NSApplication.sharedApplication().delegate as! AppDelegate
-        //let managedContext = appDelegate.managedObjectContext
-        let managedContext = appDelegate.coreDataObject.managedObjectContext
+        let managedContext = appDelegate.managedObjectContext
+        
         //2
         let fetchRequest = NSFetchRequest(entityName: "Working_Set")
         //3

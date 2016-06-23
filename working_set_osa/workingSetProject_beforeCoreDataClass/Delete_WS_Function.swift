@@ -12,14 +12,13 @@ import CoreData
 
 
 func DeleteFunc(nameOfWS: String){
-    /*
     //1
-    //var managedObjectContext: NSManagedObjectContext!
+    var managedObjectContext: NSManagedObjectContext!
     
     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     
-    //let managedContext = appDelegate.managedObjectContext.coreDataObject.managedObjectContext
-    let managedContext = appDelegate.coreDataObject.managedObjectContext
+    let managedContext = appDelegate.managedObjectContext
+    
     let name = nameOfWS
     
     //2 - Fetching
@@ -39,7 +38,7 @@ func DeleteFunc(nameOfWS: String){
         for managedObject in result {
             
             managedContext.deleteObject(managedObject as! NSManagedObject)
-            //saveFetchRequest(managedContext)
+            saveFetchRequest(managedContext)
 
             
         }
@@ -47,18 +46,5 @@ func DeleteFunc(nameOfWS: String){
         let fetchError = error as NSError
         print(fetchError)
     }
- */
-    
-    
-    let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-    
-    let coreDataObject = appDelegate.coreDataObject
-    
-    coreDataObject.deleteEntityObject("Working_Set", nameOfKey: "smartFOlder", nameOfObject: nameOfWS)
 
-    
-    
-    
-    
-    
 }

@@ -11,20 +11,21 @@ import CoreData
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var coreDataObject = dataCore()
+    var dataMember = dataCore()
     func applicationDidFinishLaunching(aNotification: NSNotification) {
                 // Insert code here to initialize your application
         
         print("Starting.")
-       
+        let inst = dataCore()
+        inst.helloWorld()
         
-        
+                self.testAct(nil)
         
         
     }
     
     @IBAction func testAct(sender: AnyObject!){
-        /*
+        
         
          //1
          var managedObjectContext: NSManagedObjectContext!
@@ -67,16 +68,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
             
             let managedContext = appDelegate.managedObjectContext
-            
+            /*A managed object is linked to an instance of NSManagedObjectContext.
+             The managed object context to which a managed object belongs, monitors
+             the managed object for changes.*/
             
             
             //2
             let entity = NSEntityDescription.entityForName("User_Attrib", inManagedObjectContext: managedContext)
-       
+            /*The entity description includes information about the managed object as
+             well as attributes and relationships.*/
             
             
             let userSetting = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-           
+            /*Instances of NSManagedObject represent a record in Core Data's backing sotre. remember, it doesn't
+             matter what that backing store looks like. NSMangedObject instance contains the information of a
+             row in a database table.*/
             
             //3
             //workingSet.setValue(nameOfWS, forKey: "smartFOlder")
@@ -103,18 +109,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          // 1
          let storyboard = NSStoryboard(name: "Main", bundle: nil)
          let editUserSettingWindowController = storyboard.instantiateControllerWithIdentifier("Edit User Settings Window") as! NSWindowController
-       
+         ///*
          if let editUserSetting_Window = editUserSettingWindowController.window{
          
          // 3
          let application = NSApplication.sharedApplication()
          application.runModalForWindow(editUserSetting_Window)
          }
-          //
+          //*/
          
          //
          }
-        */
+ 
 
         
         
@@ -126,7 +132,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-    /*
+    
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -268,6 +274,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // If we got here, it is time to quit.
         return .TerminateNow
     }
-    */
+    
 }
 

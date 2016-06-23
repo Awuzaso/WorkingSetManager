@@ -10,6 +10,13 @@
 		4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */; };
 		4C908F591D07CAD9006CC134 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F581D07CAD9006CC134 /* WindowController.swift */; };
 		4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F5A1D07CAE2006CC134 /* Directory.swift */; };
+		4C92FB041D1B06BA008BF9DE /* Edit_User_Settings_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */; };
+		4C92FB081D1B072B008BF9DE /* Associated_Card_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB071D1B072B008BF9DE /* Associated_Card_Window.swift */; };
+		4C92FB0A1D1B0756008BF9DE /* Unassociated_Card_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB091D1B0756008BF9DE /* Unassociated_Card_Window.swift */; };
+		4C92FB0E1D1B1B41008BF9DE /* Card_Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB0D1D1B1B41008BF9DE /* Card_Link.swift */; };
+		4C92FB101D1B1E2A008BF9DE /* Disassociate_Card_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB0F1D1B1E2A008BF9DE /* Disassociate_Card_Window.swift */; };
+		4C92FB141D1B3AB4008BF9DE /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB131D1B3AB4008BF9DE /* CoreDataClass.swift */; };
+		4C92FB171D1B5B05008BF9DE /* WindowManagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB161D1B5B05008BF9DE /* WindowManagerClass.swift */; };
 		4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C9390E71D04EF2500A43DB9 /* workingSetProject.xcdatamodeld */; };
 		4CAEB4AA1D03608200F35870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4A91D03608200F35870 /* AppDelegate.swift */; };
 		4CAEB4AC1D03608200F35870 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4AB1D03608200F35870 /* ViewController.swift */; };
@@ -22,13 +29,19 @@
 		4CAEB4C41D0363CB00F35870 /* Delete_WS_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */; };
 		4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E001D124A29007252A2 /* New_WS_Function.swift */; };
 		4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */; };
-		4CB16E051D134B03007252A2 /* LaunchWindow_New_Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_WS_Function.swift; sourceTree = "<group>"; };
 		4C908F581D07CAD9006CC134 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4C908F5A1D07CAE2006CC134 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
+		4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_User_Settings_Window.swift; sourceTree = "<group>"; };
+		4C92FB071D1B072B008BF9DE /* Associated_Card_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Associated_Card_Window.swift; sourceTree = "<group>"; };
+		4C92FB091D1B0756008BF9DE /* Unassociated_Card_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unassociated_Card_Window.swift; sourceTree = "<group>"; };
+		4C92FB0D1D1B1B41008BF9DE /* Card_Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card_Link.swift; sourceTree = "<group>"; };
+		4C92FB0F1D1B1E2A008BF9DE /* Disassociate_Card_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disassociate_Card_Window.swift; sourceTree = "<group>"; };
+		4C92FB131D1B3AB4008BF9DE /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
+		4C92FB161D1B5B05008BF9DE /* WindowManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowManagerClass.swift; sourceTree = "<group>"; };
 		4C9390E81D04EF2500A43DB9 /* workingSetProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = workingSetProject.xcdatamodel; sourceTree = "<group>"; };
 		4CAEB4A61D03608200F35870 /* workingSetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workingSetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB4A91D03608200F35870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +56,6 @@
 		4CAEB4C31D0363CB00F35870 /* Delete_WS_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Window.swift; sourceTree = "<group>"; };
 		4CB16E001D124A29007252A2 /* New_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New_WS_Function.swift; sourceTree = "<group>"; };
 		4CB16E021D124FBD007252A2 /* Delete_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delete_WS_Function.swift; sourceTree = "<group>"; };
-		4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchWindow_New_Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +72,7 @@
 		4C908F5C1D07CAF0006CC134 /* launchWindowTableView */ = {
 			isa = PBXGroup;
 			children = (
-				4CAEB4AD1D03608200F35870 /* Document.swift */,
 				4CAEB4AB1D03608200F35870 /* ViewController.swift */,
-				4C908F581D07CAD9006CC134 /* WindowController.swift */,
-				4C908F5A1D07CAE2006CC134 /* Directory.swift */,
 				4C908F611D07CC99006CC134 /* LaunchWindowOptions */,
 			);
 			name = launchWindowTableView;
@@ -100,7 +109,6 @@
 			children = (
 				4CAEB4BD1D0361B500F35870 /* New_WS_Window.swift */,
 				4CB16E001D124A29007252A2 /* New_WS_Function.swift */,
-				4CB16E041D134B03007252A2 /* LaunchWindow_New_Button.swift */,
 			);
 			name = New_WS_Window;
 			sourceTree = "<group>";
@@ -114,6 +122,129 @@
 				4C908F5D1D07CBFB006CC134 /* Delete_WS_Window */,
 			);
 			name = LaunchWindowOptions;
+			sourceTree = "<group>";
+		};
+		4C92FB021D1B066F008BF9DE /* Edit_User_Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */,
+			);
+			name = Edit_User_Settings;
+			sourceTree = "<group>";
+		};
+		4C92FB051D1B06E7008BF9DE /* Unassociated_Card_Window */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB091D1B0756008BF9DE /* Unassociated_Card_Window.swift */,
+			);
+			name = Unassociated_Card_Window;
+			sourceTree = "<group>";
+		};
+		4C92FB061D1B0703008BF9DE /* Associated_Card_Window */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB0C1D1B1B15008BF9DE /* Disassociate_Card_Window */,
+				4C92FB071D1B072B008BF9DE /* Associated_Card_Window.swift */,
+			);
+			name = Associated_Card_Window;
+			sourceTree = "<group>";
+		};
+		4C92FB0B1D1B1AFF008BF9DE /* Card_Link_Window */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB0D1D1B1B41008BF9DE /* Card_Link.swift */,
+			);
+			name = Card_Link_Window;
+			sourceTree = "<group>";
+		};
+		4C92FB0C1D1B1B15008BF9DE /* Disassociate_Card_Window */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB0F1D1B1E2A008BF9DE /* Disassociate_Card_Window.swift */,
+			);
+			name = Disassociate_Card_Window;
+			sourceTree = "<group>";
+		};
+		4C92FB111D1B203E008BF9DE /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB4A91D03608200F35870 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4C92FB121D1B2064008BF9DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB4B71D03608200F35870 /* Info.plist */,
+				4C9390E71D04EF2500A43DB9 /* workingSetProject.xcdatamodeld */,
+				4CAEB4B21D03608200F35870 /* Assets.xcassets */,
+				4CAEB4B41D03608200F35870 /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4C92FB151D1B58E0008BF9DE /* SupportingCustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB181D1B63B6008BF9DE /* Directory_Struct */,
+				4C92FB1B1D1B6467008BF9DE /* Window_Management_Classes */,
+				4C92FB191D1B644D008BF9DE /* Document_Class */,
+				4C92FB1A1D1B645A008BF9DE /* CoreData_Class */,
+			);
+			name = SupportingCustomClasses;
+			sourceTree = "<group>";
+		};
+		4C92FB181D1B63B6008BF9DE /* Directory_Struct */ = {
+			isa = PBXGroup;
+			children = (
+				4C908F5A1D07CAE2006CC134 /* Directory.swift */,
+			);
+			name = Directory_Struct;
+			sourceTree = "<group>";
+		};
+		4C92FB191D1B644D008BF9DE /* Document_Class */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB4AD1D03608200F35870 /* Document.swift */,
+			);
+			name = Document_Class;
+			sourceTree = "<group>";
+		};
+		4C92FB1A1D1B645A008BF9DE /* CoreData_Class */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB131D1B3AB4008BF9DE /* CoreDataClass.swift */,
+			);
+			name = CoreData_Class;
+			sourceTree = "<group>";
+		};
+		4C92FB1B1D1B6467008BF9DE /* Window_Management_Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C908F581D07CAD9006CC134 /* WindowController.swift */,
+				4C92FB161D1B5B05008BF9DE /* WindowManagerClass.swift */,
+			);
+			name = Window_Management_Classes;
+			sourceTree = "<group>";
+		};
+		4C92FB1C1D1B64CE008BF9DE /* Card_Windows */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB0B1D1B1AFF008BF9DE /* Card_Link_Window */,
+				4C92FB061D1B0703008BF9DE /* Associated_Card_Window */,
+				4C92FB051D1B06E7008BF9DE /* Unassociated_Card_Window */,
+			);
+			name = Card_Windows;
+			sourceTree = "<group>";
+		};
+		4C92FB1D1D1B64E4008BF9DE /* Backend_Support */ = {
+			isa = PBXGroup;
+			children = (
+				4C92FB021D1B066F008BF9DE /* Edit_User_Settings */,
+				4C92FB111D1B203E008BF9DE /* AppDelegate */,
+			);
+			name = Backend_Support;
 			sourceTree = "<group>";
 		};
 		4CAEB49D1D03608200F35870 = {
@@ -135,12 +266,11 @@
 		4CAEB4A81D03608200F35870 /* workingSetProject */ = {
 			isa = PBXGroup;
 			children = (
-				4CAEB4A91D03608200F35870 /* AppDelegate.swift */,
-				4C9390E71D04EF2500A43DB9 /* workingSetProject.xcdatamodeld */,
-				4CAEB4B21D03608200F35870 /* Assets.xcassets */,
-				4CAEB4B41D03608200F35870 /* Main.storyboard */,
+				4C92FB1C1D1B64CE008BF9DE /* Card_Windows */,
+				4C92FB1D1D1B64E4008BF9DE /* Backend_Support */,
 				4C908F5C1D07CAF0006CC134 /* launchWindowTableView */,
-				4CAEB4B71D03608200F35870 /* Info.plist */,
+				4C92FB151D1B58E0008BF9DE /* SupportingCustomClasses */,
+				4C92FB121D1B2064008BF9DE /* Resources */,
 			);
 			path = workingSetProject;
 			sourceTree = "<group>";
@@ -217,18 +347,24 @@
 			files = (
 				4CAEB4C21D0363B300F35870 /* Open_WS_Window.swift in Sources */,
 				4CAEB4BE1D0361B500F35870 /* New_WS_Window.swift in Sources */,
+				4C92FB101D1B1E2A008BF9DE /* Disassociate_Card_Window.swift in Sources */,
 				4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */,
 				4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */,
 				4CAEB4AC1D03608200F35870 /* ViewController.swift in Sources */,
 				4C908F591D07CAD9006CC134 /* WindowController.swift in Sources */,
 				4CAEB4C41D0363CB00F35870 /* Delete_WS_Window.swift in Sources */,
+				4C92FB081D1B072B008BF9DE /* Associated_Card_Window.swift in Sources */,
+				4C92FB0E1D1B1B41008BF9DE /* Card_Link.swift in Sources */,
 				4CAEB4AA1D03608200F35870 /* AppDelegate.swift in Sources */,
+				4C92FB141D1B3AB4008BF9DE /* CoreDataClass.swift in Sources */,
 				4CB16E011D124A29007252A2 /* New_WS_Function.swift in Sources */,
 				4CB16E031D124FBD007252A2 /* Delete_WS_Function.swift in Sources */,
+				4C92FB041D1B06BA008BF9DE /* Edit_User_Settings_Window.swift in Sources */,
 				4CAEB4AE1D03608200F35870 /* Document.swift in Sources */,
-				4CB16E051D134B03007252A2 /* LaunchWindow_New_Button.swift in Sources */,
+				4C92FB171D1B5B05008BF9DE /* WindowManagerClass.swift in Sources */,
 				4CAEB4C01D03638A00F35870 /* Edit_WS_Window.swift in Sources */,
 				4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */,
+				4C92FB0A1D1B0756008BF9DE /* Unassociated_Card_Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

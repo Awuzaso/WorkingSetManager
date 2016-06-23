@@ -14,13 +14,12 @@ var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
 
 func addNewMember(nameOfWS: String){
     
-    let windowObject = windowManager()
-    let path = "/Users/Osa/Desktop/"
-    /*
-    //
+    
+    
+    //1
     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     
-    let managedContext = appDelegate.coreDataObject.managedObjectContext
+    let managedContext = appDelegate.managedObjectContext
     /*A managed object is linked to an instance of NSManagedObjectContext.
      The managed object context to which a managed object belongs, monitors
      the managed object for changes.*/
@@ -46,24 +45,11 @@ func addNewMember(nameOfWS: String){
     do {
         try managedContext.save()
         //5
-        //workingSets.append(workingSet)
+        workingSets.append(workingSet)
     } catch let error as NSError  {
         print("Could not save \(error), \(error.userInfo)")
     }
-    */
     
-    
-    ///*
-     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-     
-     let coreDataObject = appDelegate.coreDataObject
-     
-    coreDataObject.addEntityObject("Working_Set", nameOfKey: "smartFOlder", nameOfObject: nameOfWS)
-     //*/
-    
-    windowObject.createNewFile(path, nameOfFile: nameOfWS)
-    
-    /*
     do {
         var deliverablePathString = "/Users/Osa/Desktop/\(nameOfWS)"
         try NSFileManager.defaultManager().createDirectoryAtPath(deliverablePathString, withIntermediateDirectories: true, attributes: nil)
@@ -72,7 +58,6 @@ func addNewMember(nameOfWS: String){
     } catch {
         print("general error - \(error)")
     }
-    */
     
     
 

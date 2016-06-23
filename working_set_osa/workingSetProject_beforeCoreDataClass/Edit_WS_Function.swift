@@ -10,14 +10,10 @@ import Foundation
 import Cocoa
 import CoreData
 
-
-
-/*
 func getManagedContext() -> NSManagedObjectContext {
     let appDelegate =
         NSApplication.sharedApplication().delegate as! AppDelegate
-    //let managedContext = appDelegate.managedObjectContext
-    let managedContext = appDelegate.coreDataObject.managedObjectContext
+    let managedContext = appDelegate.managedObjectContext
     return managedContext
 }
 
@@ -58,17 +54,11 @@ func editFetchRequest(managedContext: NSManagedObjectContext,nameOfWS: String){
   
     
 }
-*/
-func editWSFunc(old_nameOfWS: String ,new_nameOfWS: String){
+
+func editWSFunc(nameOfWS: String){
     
-    //let managedContext = getManagedContext()
-    //editFetchRequest(managedContext,nameOfWS: nameOfWS)
-    let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-    
-    let coreDataObject = appDelegate.coreDataObject
-    
-    coreDataObject.editEntityObject("Working_Set", nameOfKey: "smartFOlder", oldName: old_nameOfWS,editName: new_nameOfWS)
-    
+    let managedContext = getManagedContext()
+    editFetchRequest(managedContext,nameOfWS: nameOfWS)
     
     
     

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "workingSetProject/ViewController.swift"
-            timestampString = "487804547.288559"
+            timestampString = "488343190.756029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "tableView(_:viewForTableColumn:row:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,29 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "workingSetProject/ViewController.swift"
-            timestampString = "487738283.006053"
+            filePath = "workingSetProject/Edit_WS_Window.swift"
+            timestampString = "488341455.571914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "updateStatus()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "workingSetProject/ViewController.swift"
-            timestampString = "487804547.288559"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "editWindow(_:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "dismissEditWindow(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
