@@ -16,10 +16,6 @@ class ViewController: NSViewController {
     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     
     
-    /*Variables for Sorting Table View*/
-    var sortOrder = Directory.FileOrder.Name
-    var sortAscending = true
-    
     /*Outlets for Buttons*/
     @IBOutlet weak var NewButton: NSButton!
     @IBOutlet weak var OpenButton: NSButton!
@@ -36,7 +32,6 @@ class ViewController: NSViewController {
     var nameOfWS: String! //Selected WS
     var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
     
-    /*Function for toggling between off and on state of buttons.*/
     func switchOnOffButtons(isActive:Bool){
         OpenButton.enabled = isActive
         EditButton.enabled = isActive
@@ -49,35 +44,62 @@ class ViewController: NSViewController {
         tableView!.setDelegate(self)
         tableView!.setDataSource(self)
         tableView!.target = self
-        
-        //Setting up sorting configuration:
-        // 1
-        let descriptorName_01 = NSSortDescriptor(key: Directory.FileOrder.Name.rawValue, ascending: true)
-        let descriptorName_02 = NSSortDescriptor(key: Directory.FileOrder.Name.rawValue, ascending: true)
-        
-        // 2
-        tableView.tableColumns[0].sortDescriptorPrototype = descriptorName_01;
-        tableView.tableColumns[0].sortDescriptorPrototype = descriptorName_02;
-        
         switchOnOffButtons(false)
-        
+       /* OpenButton.enabled = false
+        EditButton.enabled = false
+        DeleteButton.enabled = false
+      */
     }
     
     
 
-    /*This function is called everytime there is a change in the table view.*/
+    
     func updateStatus() {
-        // 1 - Get collection of objects from object graph.
+        
+    
+        
+        
+        //launchWindowTable.set_TableView(tableView)
+        
         workingSets = appDelegate.coreDataObject.getDataObjects("Working_Set")
        
-        // 2 - Set the current selection of working set from table view.
+        /*
+        // Convert into a function.
+        let text:String
+        // 1
+        let itemsSelected = tableView!.selectedRowIndexes.count
+        
+        // 2
+        if ( workingSets.count == 0 ) {
+            text = ""
+        }
+        else if( itemsSelected == 0 ) {
+            text =   "\(workingSets.count) items"
+        }
+        else
+        {
+            text = "\(itemsSelected) of \(workingSets.count) selected"
+        }
+        */
+     
+
+        // 3
+        statusLabel.stringValue = launchWindowTable.getStatusOfItemsSelected(tableView, itemCount: workingSets.count)
+       
+        
+        //tableView!.printMessage()
+        //statusLabel.stringValue = tableView!.getStatusOfItemsSelected(5)
+       /////////////////////
+        
+        //let item = launchWindowTable.getStatusOfItemsSelected(tableView, itemCount: workingSets.count)
+      
+        
+        //Selected Value
+        
         let item = workingSets[tableView!.selectedRow]
         nameOfWS =  launchWindowTable.getItemSelected_String(tableView, managedObjectArray: workingSets, objectAttr: "SmartFOlder")       /*item.valueForKey("smartFOlder") as? String*/
         
-        // 3 - Change the status label beneath the table view dynamically as selection changes.
-        statusLabel.stringValue = launchWindowTable.getStatusOfItemsSelected(tableView, itemCount: workingSets.count)
-
-        // 4 - When a working set is seleted from the table view, launch window buttons are then made available to be pressed.
+        
         switchOnOffButtons(true)
     }
     
@@ -121,6 +143,7 @@ class ViewController: NSViewController {
             print("Out of loop")
           
         }
+        // 4
         reloadFileList()
     }
     
@@ -194,7 +217,6 @@ class ViewController: NSViewController {
     func reloadFileList() {
         //directoryItems = directory?.contentsOrderedBy(sortOrder, ascending: sortAscending)
         tableView!.reloadData()
-        
     }
     
 
@@ -207,4 +229,84 @@ class ViewController: NSViewController {
 
     
     
+}
+
+extension ViewController : NSTableViewDataSource {
+    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+        
+        //1
+        let appDelegate =
+            NSApplication.sharedApplication().delegate as! AppDelegate
+        //let managedContext = appDelegate.managedObjectContext
+        let managedContext = appDelegate.coreDataObject.managedObjectContext
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "Working_Set")
+        //3
+        do {
+            let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+            workingSets = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        return workingSets.count ?? 0
+    }
+}
+
+extension ViewController : NSTableViewDelegate {
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        updateStatus()
+    }
+    
+    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+       
+        var text:String = ""
+        var cellIdentifier: String = ""
+        
+        
+        //1
+        let appDelegate =
+            NSApplication.sharedApplication().delegate as! AppDelegate
+        //let managedContext = appDelegate.managedObjectContext
+        let managedContext = appDelegate.coreDataObject.managedObjectContext
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "Working_Set")
+        //3
+        do {
+            let results =
+                try managedContext.executeFetchRequest(fetchRequest)
+            workingSets = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+
+        /////////////
+        var value = workingSets[row].valueForKey("smartFOlder") as? String
+        
+        
+        if(value == nil){
+            value = "Unnamed"
+        }
+        
+        // 2
+        if tableColumn == tableView.tableColumns[0] {
+            //image = item.icon
+           
+            text = value!
+            cellIdentifier = "NameCellID"
+        } else if tableColumn == tableView.tableColumns[1] {
+            text = "Value"
+            cellIdentifier = "DateCellID"
+        }
+        // 3
+        if let cell = tableView.makeViewWithIdentifier(cellIdentifier, owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = text
+            //cell.imageView?.image = image ?? nil
+            return cell
+        }
+        return nil
+    }
 }

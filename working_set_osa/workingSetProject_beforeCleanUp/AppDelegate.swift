@@ -1,31 +1,132 @@
 //
-//  CoreDataClass.swift
-//  workingSetProject
+//  AppDelegate.swift
+//  testCore
 //
-//  Created by Osa on 6/22/16.
+//  Created by Osa on 6/5/16.
 //  Copyright © 2016 Osa. All rights reserved.
 //
 
 import Cocoa
 import CoreData
-
-class dataCore: NSObject, NSApplicationDelegate{
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
     
-    
-    func helloWorld() {
-        print ("I'm alive.")
+    var coreDataObject = dataCore()
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
+                // Insert code here to initialize your application
+        
+        print("Starting.")
+       
+        
+        
+        
+        
     }
     
-    
+    @IBAction func testAct(sender: AnyObject!){
+        /*
+        
+         //1
+         var managedObjectContext: NSManagedObjectContext!
+         
+         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+         
+         let managedContext = appDelegate.managedObjectContext
+         
+        
+         //let managedObjectContext = self.managedObjectContext
+         var countOfEntity: Int
+         
+         let fetchRequest = NSFetchRequest(entityName: "User_Attrib")
+         
+         do{
+         
+         //let result = try self.managedObjectContext.executeRequest(fetchRequest)
+         let result = try self.managedObjectContext.countForFetchRequest(fetchRequest, error: nil)
+         
+         countOfEntity = result
+         
+         } catch{
+         let fetchError = error as NSError
+         print(fetchError)
+         }
+        
+         //Here the program should evaluate if the program is being run for the first time.
+         
+         // Program should evaluate the CoreData object graph for entity UserAttrib.
+         
+         // Scenario 1: If there are is no user data member for "UserAttrib", it will create a new one.
+         // Launch window associated with "UserAttrib"
+         // Scenario 2: If there is a member, no action needs to be taken.
+         
+         
+         if(countOfEntity == 0){
+         
+            /////MESSSSS
+            //1
+            let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+            
+            let managedContext = appDelegate.managedObjectContext
+            
+            
+            
+            //2
+            let entity = NSEntityDescription.entityForName("User_Attrib", inManagedObjectContext: managedContext)
+       
+            
+            
+            let userSetting = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+           
+            
+            //3
+            //workingSet.setValue(nameOfWS, forKey: "smartFOlder")
+            
+            userSetting.setValue(false, forKey: "ifFirstTime")
+            userSetting.setValue("/Users/Osa/Desktop", forKey: "pathToSaveWS")
+            userSetting.setValue("/dev/cu.usbmodem1411", forKey: "serialPortPath")
+            //4
+            do {
+                try managedContext.save()
+                //5
+                //workingSets.append(workingSet)
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+            
+            
+            
+            
+            
+            
+            ////MESSSSS
+         
+         // 1
+         let storyboard = NSStoryboard(name: "Main", bundle: nil)
+         let editUserSettingWindowController = storyboard.instantiateControllerWithIdentifier("Edit User Settings Window") as! NSWindowController
+       
+         if let editUserSetting_Window = editUserSettingWindowController.window{
+         
+         // 3
+         let application = NSApplication.sharedApplication()
+         application.runModalForWindow(editUserSetting_Window)
+         }
+          //
+         
+         //
+         }
+        */
+
+        
+        
+        
+        
+        
+    }
     
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-    
-   
-    
-    
-    
+    /*
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -76,7 +177,7 @@ class dataCore: NSObject, NSApplicationDelegate{
             do {
                 try coordinator!.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: nil)
             } catch {
-                
+           
                 failError = error as NSError
             }
         }
@@ -167,148 +268,6 @@ class dataCore: NSObject, NSApplicationDelegate{
         // If we got here, it is time to quit.
         return .TerminateNow
     }
+    */
 }
 
-extension dataCore{
-    ////////////////////////////////////////////////////////////
-     /*Used to save to the persistent store of the entity,*/
-    func saveManagedContext(){
-        do {
-            try self.managedObjectContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-    }
-   
-    
-    
-    func getDataObjects(nameOfEntity:String) -> Array<NSManagedObject>{
-        var dataObjects = [NSManagedObject]()
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: nameOfEntity) // Keep, buy will need to specify a string as argument to hold this value.
-        
-        //3
-        do {
-            let results =
-                try self.managedObjectContext.executeFetchRequest(fetchRequest) // Use a self reference
-                dataObjects = results as! [NSManagedObject] //Define earlier
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-        
-        return dataObjects
-    }
-    
-    ////////////////////////////////////////////////////////////
-    /*Used to add to the persistent store of the entity,*/
-    func addEntityObject(nameOfEntity: String, nameOfKey: String, nameOfObject: String){
-        
-        var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
-        
-        //1
-        let specified_entity = NSEntityDescription.entityForName(nameOfEntity, inManagedObjectContext: self.managedObjectContext)
-        
-        let new_object = NSManagedObject(entity: specified_entity!, insertIntoManagedObjectContext: self.managedObjectContext)
-        
-        //2
-        new_object.setValue(nameOfObject, forKey: nameOfKey)
-    
-        //3
-        self.saveManagedContext()
-        
-        workingSets.append(new_object)
-    }
-    
-    ////////////////////////////////////////////////////////////
-    /*Used to edit attributes of a specified object of a specific entity.*/
-    func editEntityObject(nameOfEntity: String, nameOfKey: String, oldName:String, editName: String){
-        
-        
-        //1
-        var objectCollection = [NSManagedObject]()
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
-        let predicate = NSPredicate(format: "%K == %@",nameOfKey,oldName)
-        fetchRequest.predicate = predicate
-        
-        //3
-        do{
-            
-            
-            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            
-            for managedObject in result {
-                
-                //self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
-                //self.saveManagedContext()
-                managedObject.setValue(editName, forKey: nameOfKey)
-                self.saveManagedContext()
-                
-            }
-        } catch{
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-        /*
-        do {
-            let results = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            objectCollection = results as! [NSManagedObject]
-            
-            for people in results{
-                
-                
-                people.setValue(editName, forKey: nameOfKey)
-            }
-            self.saveManagedContext()
-            
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-        */
-        
-        
-        
-        
-    }
-    
-    ////////////////////////////////////////////////////////////
-    /*Used to delete specified objects of a specified entity.*/
-    func deleteEntityObject(nameOfEntity: String, nameOfKey: String, nameOfObject: String){
-        
-        
-        //1 - Fetching
-        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
-        
-        
-        //2 - Predicate
-        let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
-        fetchRequest.predicate = predicate
-        
-        //3 - Execute Fetch Request
-        do{
-            
-            
-            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            
-            for managedObject in result {
-                
-                self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
-                self.saveManagedContext()
-              
-            }
-        } catch{
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-        
-        
-    }
-    
-    
-   
-    
-    
-    
-}

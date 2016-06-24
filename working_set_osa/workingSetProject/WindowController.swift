@@ -23,22 +23,40 @@
 
 import Cocoa
 
-class WindowController: NSWindowController {
-  
-  @IBAction func openDocument(sender: AnyObject?) {
+func sendValue(urlVal:NSURL){
+    // 1
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    let openWindowController = storyboard.instantiateControllerWithIdentifier("Edit User Settings Window") as! NSWindowController
     
-    let openPanel = NSOpenPanel()
-    openPanel.showsHiddenFiles      = false
-    openPanel.canChooseFiles        = false
-    openPanel.canChooseDirectories  = true
-    
-    openPanel.beginSheetModalForWindow(self.window!) {
-      (response) -> Void in
-      guard response == NSFileHandlingPanelOKButton else {
-        return;
-      }
-      self.contentViewController?.representedObject = openPanel.URL
+    // 2
+    if let openWS_Window = openWindowController.window{
+        
+        
+        let  open_WS_WindowController = openWS_Window.contentViewController as! Edit_User_Settings_Window
+        print(open_WS_WindowController.File_Directory_Label.stringValue )
+        open_WS_WindowController.File_Directory_Label.stringValue = urlVal.absoluteString
+        
     }
-  }
+}
+
+class WindowController: NSWindowController {
+    var value = "Label"
+    @IBAction func openDocument(sender: AnyObject?) {
+        
+        let openPanel = NSOpenPanel()
+        openPanel.showsHiddenFiles      = false
+        openPanel.canChooseFiles        = false
+        openPanel.canChooseDirectories  = true
+        
+        openPanel.beginSheetModalForWindow(self.window!) {
+            (response) -> Void in
+            guard response == NSFileHandlingPanelOKButton else {
+                return;
+            }
+            self.value = (openPanel.URL?.absoluteString)!
+            //sendValue(openPanel.URL!)
+        }
+    }
+
   
 }
