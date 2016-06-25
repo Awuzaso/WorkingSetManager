@@ -455,7 +455,7 @@ Gw
         <!--Window Controller-->
         <scene sceneID="y9m-Et-GGi">
             <objects>
-                <windowController id="6Pq-aq-Dnk" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="UAWindow" id="6Pq-aq-Dnk" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="1wx-UG-FnK">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -468,7 +468,7 @@ Gw
                 </windowController>
                 <customObject id="zB5-hh-PAj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="1192"/>
+            <point key="canvasLocation" x="918" y="1180"/>
         </scene>
         <!--Unassociated Card Window-->
         <scene sceneID="lcI-lA-dpH">
@@ -737,7 +737,7 @@ Gw
                                     <rect key="frame" x="1" y="0.0" width="438" height="175"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="zBc-Ru-4PQ" viewBased="YES" id="CKV-CO-lbX">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="zBc-Ru-4PQ" viewBased="YES" id="CKV-CO-lbX">
                                             <rect key="frame" x="0.0" y="0.0" width="438" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -974,7 +974,7 @@ Gw
         <!--Window Controller-->
         <scene sceneID="kUV-5I-SOd">
             <objects>
-                <windowController id="qvF-MZ-RWZ" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="AWindow" id="qvF-MZ-RWZ" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="mJL-LD-OYp">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -1066,7 +1066,7 @@ Gw
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HJi-Ca-kJx">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="686" y="756" width="481" height="270"/>
+                        <rect key="contentRect" x="686" y="756" width="481" height="327"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="3840" height="2137"/>
                     </window>
                     <connections>
@@ -1075,52 +1075,26 @@ Gw
                 </windowController>
                 <customObject id="jVY-54-TNT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271.5" y="2040"/>
+            <point key="canvasLocation" x="-271.5" y="2068.5"/>
         </scene>
         <!--Card Link Window-->
         <scene sceneID="THG-Gm-nmc">
             <objects>
                 <viewController id="d8O-fK-MPx" customClass="Card_Link_Window" customModule="workingSetProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="6Xe-pi-MBh">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="306"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6t-3W-XBu">
-                                <rect key="frame" x="18" y="216" width="462" height="34"/>
+                                <rect key="frame" x="18" y="252" width="462" height="34"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Please select one of the following &quot;working sets&quot; to associate with the card." id="NV3-h5-FCm">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acB-Gl-Y2Q">
-                                <rect key="frame" x="124" y="13" width="59" height="32"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wCh-GE-Yof">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="OK_Button:" target="d8O-fK-MPx" id="Cws-KK-cz3"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-NF-fHi">
-                                <rect key="frame" x="274" y="13" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vlx-Nh-j9b">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="Cancel_Button:" target="d8O-fK-MPx" id="h9U-ri-Hkx"/>
-                                </connections>
-                            </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upU-bk-HZB">
-                                <rect key="frame" x="20" y="46" width="440" height="157"/>
+                                <rect key="frame" x="20" y="82" width="440" height="157"/>
                                 <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="IY7-2h-qmo">
                                     <rect key="frame" x="1" y="0.0" width="438" height="156"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1145,7 +1119,7 @@ Gw
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="aYK-tM-jFd">
+                                                        <tableCellView identifier="NameCellID" id="aYK-tM-jFd">
                                                             <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1177,7 +1151,7 @@ Gw
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="caX-2h-MLj">
+                                                        <tableCellView identifier="DateCellID" id="caX-2h-MLj">
                                                             <rect key="frame" x="120" y="1" width="316" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1214,12 +1188,50 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVY-BH-MXd">
+                                <rect key="frame" x="211" y="57" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="K9v-Nk-r8d">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acB-Gl-Y2Q">
+                                <rect key="frame" x="124" y="13" width="59" height="32"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wCh-GE-Yof">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OK_Button:" target="d8O-fK-MPx" id="Cws-KK-cz3"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-NF-fHi">
+                                <rect key="frame" x="274" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vlx-Nh-j9b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="Cancel_Button:" target="d8O-fK-MPx" id="h9U-ri-Hkx"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="SVY-BH-MXd" id="qw8-qH-vXX"/>
+                        <outlet property="tableView" destination="2RB-qB-9dg" id="bos-ye-0AX"/>
+                    </connections>
                 </viewController>
                 <customObject id="btn-yS-i98" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-264" y="2525"/>
+            <point key="canvasLocation" x="-264" y="2543"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="188-ZF-Xr5">

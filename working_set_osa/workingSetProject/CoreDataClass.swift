@@ -251,28 +251,40 @@ extension dataCore{
             let fetchError = error as NSError
             print(fetchError)
         }
-        /*
-        do {
-            let results = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            objectCollection = results as! [NSManagedObject]
-            
-            for people in results{
-                
-                
-                people.setValue(editName, forKey: nameOfKey)
-            }
-            self.saveManagedContext()
-            
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-        */
-        
-        
-        
-        
     }
     
+    
+    func setValueOfEntityObject(nameOfEntity: String, nameOfKey: String, oldName:String, editName: String){
+        
+        
+        //1
+        var objectCollection = [NSManagedObject]()
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        let predicate = NSPredicate(format: "%K == %@","smartFOlder",oldName)
+        fetchRequest.predicate = predicate
+        
+        //3
+        do{
+            
+            
+            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            
+            for managedObject in result {
+                
+                //self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
+                //self.saveManagedContext()
+                print("For \(managedObject), it's \(nameOfKey) is set to \(editName)")
+                managedObject.setValue(editName, forKey: nameOfKey)
+                self.saveManagedContext()
+                
+            }
+        } catch{
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+    }
     ////////////////////////////////////////////////////////////
     /*Used to delete specified objects of a specified entity.*/
     func deleteEntityObject(nameOfEntity: String, nameOfKey: String, nameOfObject: String){
@@ -303,6 +315,39 @@ extension dataCore{
             print(fetchError)
         }
         
+        
+    }
+    
+    func evaluateIfInDB(nameOfEntity: String, nameOfKey: String, nameOfObject: String)->Bool{
+        var evalVal: Bool!
+        
+        //1 - Fetching
+        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        
+        
+        //2 - Predicate
+        let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
+        fetchRequest.predicate = predicate
+        
+        //3 - Execute Fetch Request
+        do{
+            
+            
+            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            result.count
+            if(result.count == 0){
+                evalVal = false
+            }
+            else{
+                evalVal = true
+            }
+            
+        } catch{
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+        
+        return evalVal
         
     }
     

@@ -10,16 +10,22 @@ import Cocoa
 import CoreData
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
+    var cardValue: String!
     var coreDataObject = dataCore()
+    let serialPortObject = SerialPortManager(pathName: "/dev/cu.usbmodem1411",in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+    
+    func set_CardValue(value:String){
+        cardValue = value
+        print(cardValue)
+    }
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
                 // Insert code here to initialize your application
-        
         print("Starting.")
        evaluateIfFirstTime()
         
         
-        
+        print(coreDataObject.evaluateIfInDB("Working_Set", nameOfKey: "tagID", nameOfObject: "0x62 0x38 0xAB 0xCA"))
     }
     
     func evaluateIfFirstTime(){
@@ -95,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         else{
             print("User profile detected.")
-            testAct(nil)
+            //testAct(nil)
         }
 
     }

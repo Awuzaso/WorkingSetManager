@@ -8,7 +8,7 @@
     <entity name="Working_Set" syncable="YES">
         <attribute name="isActive" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="smartFOlder" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tagID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tagID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="User_Attrib" positionX="-63" positionY="9" width="128" height="90"/>
