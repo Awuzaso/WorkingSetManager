@@ -62,7 +62,7 @@ class Card_Link_Window: NSViewController {
         let cardID = appDelegate.cardValue
         dataCore.setValueOfEntityObject("Working_Set", nameOfKey: "tagID", oldName: nameOfWS, editName: cardID)
         
-        print(cardID)
+        //print(cardID)
         
         
         let application = NSApplication.sharedApplication()
@@ -99,7 +99,7 @@ extension Card_Link_Window : NSTableViewDataSource {
         //1
         let appDelegate =
             NSApplication.sharedApplication().delegate as! AppDelegate
-        //let managedContext = appDelegate.managedObjectContext
+   
         let managedContext = appDelegate.coreDataObject.managedObjectContext
         //2
         let fetchRequest = NSFetchRequest(entityName: "Working_Set")
@@ -114,23 +114,6 @@ extension Card_Link_Window : NSTableViewDataSource {
         
         return workingSets.count ?? 0
     }
-    
-    /*
-    func tableView(tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        print("Sorting.")
-        // 1
-        guard let sortDescriptor = tableView.sortDescriptors.first else {
-            return
-        }
-        if let order = Directory.FileOrder(rawValue: sortDescriptor.key! ) {
-            // 2
-            sortOrder = order
-            sortAscending = sortDescriptor.ascending
-            reloadFileList()
-        }
-    }
-    */
-    
 }
 
 extension Card_Link_Window : NSTableViewDelegate {

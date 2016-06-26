@@ -916,6 +916,10 @@ Gw
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <binding destination="2jQ-rw-lrQ" name="content" keyPath="serialPortManager.availablePorts" id="zmK-IS-YKf"/>
+                                    <binding destination="2jQ-rw-lrQ" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="zmK-IS-YKf" id="wuh-MW-n1J"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeX-PC-HZy">
                                 <rect key="frame" x="191" y="170" width="235" height="17"/>

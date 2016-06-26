@@ -220,6 +220,65 @@ extension dataCore{
         workingSets.append(new_object)
     }
     
+    // - MARK: Functions for single objects represented within a database.
+    
+    //
+    func setSingleObjectAttrib(nameOfEntity:String,nameOfKey:String,value:String){
+        //1
+        var objectCollection = [NSManagedObject]()
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+       
+        
+        //3
+        do{
+        
+        
+        let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+        
+        for managedObject in result {
+        
+        managedObject.setValue(value, forKey: nameOfKey)
+        self.saveManagedContext()
+        
+        }
+        } catch{
+        let fetchError = error as NSError
+        print(fetchError)
+        }
+    }
+    
+    func getSingleObjectAttrib(nameOfEntity:String,nameOfKey:String)->String{
+        var retVal:String!
+        //1
+        var objectCollection = [NSManagedObject]()
+        
+        //2
+        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        
+        
+        //3
+        do{
+            
+            
+            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            
+            for managedObject in result {
+                
+                retVal = managedObject.valueForKey(nameOfKey) as! String
+                
+            }
+        } catch{
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+        
+        return retVal
+    }
+    
+    
+
     ////////////////////////////////////////////////////////////
     /*Used to edit attributes of a specified object of a specific entity.*/
     func editEntityObject(nameOfEntity: String, nameOfKey: String, oldName:String, editName: String){
@@ -241,8 +300,6 @@ extension dataCore{
             
             for managedObject in result {
                 
-                //self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
-                //self.saveManagedContext()
                 managedObject.setValue(editName, forKey: nameOfKey)
                 self.saveManagedContext()
                 
@@ -273,9 +330,7 @@ extension dataCore{
             
             for managedObject in result {
                 
-                //self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
-                //self.saveManagedContext()
-                print("For \(managedObject), it's \(nameOfKey) is set to \(editName)")
+                print("For \(managedObject.valueForKey("smartFOlder")), it's \(nameOfKey) is set to \(editName)")
                 managedObject.setValue(editName, forKey: nameOfKey)
                 self.saveManagedContext()
                 
@@ -326,6 +381,9 @@ extension dataCore{
         
         
         //2 - Predicate
+        print(nameOfKey)
+        print(nameOfEntity)
+        print(nameOfObject)
         let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
         fetchRequest.predicate = predicate
         
@@ -334,8 +392,11 @@ extension dataCore{
             
             
             let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+            print(result)
+            print(result.count)
             result.count
             if(result.count == 0){
+                
                 evalVal = false
             }
             else{

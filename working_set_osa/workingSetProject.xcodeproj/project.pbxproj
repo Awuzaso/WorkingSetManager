@@ -26,6 +26,7 @@
 		4C92FB201D1C53AC008BF9DE /* tableViewManagerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB1F1D1C53AC008BF9DE /* tableViewManagerClass.swift */; };
 		4C92FB221D1C8ADC008BF9DE /* View_Controller_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB211D1C8ADC008BF9DE /* View_Controller_Extension.swift */; };
 		4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C9390E71D04EF2500A43DB9 /* workingSetProject.xcdatamodeld */; };
+		4CACB2281D20392C002D6ED2 /* User_Pref_Manager_Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CACB2271D20392C002D6ED2 /* User_Pref_Manager_Class.swift */; };
 		4CAEB4AA1D03608200F35870 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4A91D03608200F35870 /* AppDelegate.swift */; };
 		4CAEB4AC1D03608200F35870 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4AB1D03608200F35870 /* ViewController.swift */; };
 		4CAEB4AE1D03608200F35870 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB4AD1D03608200F35870 /* Document.swift */; };
@@ -65,6 +66,7 @@
 		4C92FB1F1D1C53AC008BF9DE /* tableViewManagerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewManagerClass.swift; sourceTree = "<group>"; };
 		4C92FB211D1C8ADC008BF9DE /* View_Controller_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_Controller_Extension.swift; sourceTree = "<group>"; };
 		4C9390E81D04EF2500A43DB9 /* workingSetProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = workingSetProject.xcdatamodel; sourceTree = "<group>"; };
+		4CACB2271D20392C002D6ED2 /* User_Pref_Manager_Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_Pref_Manager_Class.swift; sourceTree = "<group>"; };
 		4CAEB4A61D03608200F35870 /* workingSetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workingSetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB4A91D03608200F35870 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CAEB4AB1D03608200F35870 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				4C908F581D07CAD9006CC134 /* WindowController.swift */,
 				4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */,
+				4CACB2271D20392C002D6ED2 /* User_Pref_Manager_Class.swift */,
 			);
 			name = Edit_User_Settings;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				4C5D927B1D1D837600972FEB /* ORSSerialBuffer.m in Sources */,
 				4C92FB221D1C8ADC008BF9DE /* View_Controller_Extension.swift in Sources */,
 				4C92FB101D1B1E2A008BF9DE /* Disassociate_Card_Window.swift in Sources */,
+				4CACB2281D20392C002D6ED2 /* User_Pref_Manager_Class.swift in Sources */,
 				4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */,
 				4C9390E91D04EF2500A43DB9 /* workingSetProject.xcdatamodeld in Sources */,
 				4CAEB4AC1D03608200F35870 /* ViewController.swift in Sources */,

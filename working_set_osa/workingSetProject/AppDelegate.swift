@@ -12,8 +12,26 @@ import CoreData
 class AppDelegate: NSObject, NSApplicationDelegate {
     var cardValue: String!
     var coreDataObject = dataCore()
-    let serialPortObject = SerialPortManager(pathName: "/dev/cu.usbmodem1411",in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+    let userPref = UserPrefManager()
     
+    var filePath:String {
+        get{
+            return userPref.get_fileDirectory(&coreDataObject)
+        }
+    }
+    //var serialPath:String! = nil
+    var serialPath:String {
+        get{
+            return userPref.get_serialPort(&coreDataObject)
+        }
+    }
+    //let serialPortObject = SerialPortManager(pathName: "/dev/cu.usbmodem1411",in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+    /*var serialPortObject: SerialPortManager {
+        get{
+            return SerialPortManager(pathName: serialPath,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+        }
+    }*/
+    var serialPortObject: SerialPortManager!
     func set_CardValue(value:String){
         cardValue = value
         print(cardValue)
@@ -21,24 +39,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
                 // Insert code here to initialize your application
-        print("Starting.")
+        //print("Starting.")
+        
+        serialPortObject = SerialPortManager(pathName: serialPath/*"/dev/cu.usbmodem1411"*/,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+        //print(serialPath)
        evaluateIfFirstTime()
         
+        //filePath = userPref.get_fileDirectory(&coreDataObject)
+        //serialPath = userPref.get_serialPort(&coreDataObject)
+        //print(coreDataObject.evaluateIfInDB("Working_Set", nameOfKey: "tagID", nameOfObject: "0x62 0x38 0xAB 0xCA"))
         
-        print(coreDataObject.evaluateIfInDB("Working_Set", nameOfKey: "tagID", nameOfObject: "0x62 0x38 0xAB 0xCA"))
+        //print(coreDataObject.getSingleObjectAttrib("User_Attrib", nameOfKey: "pathToSaveWS"))
+        //print(coreDataObject.getSingleObjectAttrib("User_Attrib", nameOfKey: "serialPortPath"))
     }
     
     func evaluateIfFirstTime(){
         
-        //1
-        var managedObjectContext: NSManagedObjectContext!
         
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = coreDataObject.managedObjectContext
-        
-        
-        //let managedObjectContext = self.managedObjectContext
         var countOfEntity: Int
         
         let fetchRequest = NSFetchRequest(entityName: "User_Attrib")
@@ -70,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             /////MESSSSS
             //1
-            let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+            _ = NSApplication.sharedApplication().delegate as! AppDelegate
             
             let managedContext = coreDataObject.managedObjectContext
             
@@ -107,8 +124,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func testAct(sender: AnyObject!){
-        
-     
         // 1
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let openWindowController = storyboard.instantiateControllerWithIdentifier("Edit User Settings Window") as! NSWindowController
@@ -116,19 +131,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 2
         if let openWS_Window = openWindowController.window{
             
-            
-            //let  open_WS_WindowController = openWS_Window.contentViewController as! Open_WS_Window
-            
-            //open_WS_WindowController.nameOfWS.stringValue = nameOfWS
-            
             // 3
             let application = NSApplication.sharedApplication()
             application.runModalForWindow(openWS_Window)
         }
-        
-        
-        
-        
         
     }
     

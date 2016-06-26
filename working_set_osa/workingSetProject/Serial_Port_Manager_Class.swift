@@ -28,14 +28,13 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
     var nameOfWindowIfAssociated: String!
     
     
-    
+    /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     init(pathName:String,in_nameOfStoryBoard: String, in_nameOfWinUnAssoc:String, in_nameOfWinAssoc:String){
         super.init()
         
         nameOfStoryboard = in_nameOfStoryBoard
         nameOfWindowIfAssociated = in_nameOfWinAssoc
         nameOfWindowIfUnassociated = in_nameOfWinUnAssoc
-        
         serialPort = ORSSerialPort(path: "\(pathName)")
         serialPort?.delegate = self
         serialPort!.baudRate = 115200
@@ -43,12 +42,26 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
         serialPort!.open()
     }
     
-    
-    func get_SerialPorts()->Array<ORSSerialPort>{
-        return serialPortManager.availablePorts
+    /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+    func get_SerialPorts()->Array<String>{
+        var arrayOfPorts_string:[String]!
+        var arrayOfPorts = serialPortManager.availablePorts
+        
+       
+        
+        for(var i = 0; i < arrayOfPorts.count; i++){
+            print(arrayOfPorts[i])
+            var value = "\(arrayOfPorts[i])"
+            
+            arrayOfPorts_string[i] = value
+        }
+        
+        
+  
+        return arrayOfPorts_string
     }
     
-    
+    /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     func launchWindow(nameOfWindow:String){
         
         // 1
@@ -57,12 +70,6 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
         ///*
         // 2
         if let openModalWindow = openWindowController.window{
-            
-            /*
-             let openTestModalWindowController = openTestModalWindow.contentViewController as! testModal
-             openTestModalWindowController.testModalLabel.stringValue = string as String
-             */
-            
             
             // 3
             let application = NSApplication.sharedApplication()
@@ -73,17 +80,18 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
         
     }
     
-    
+    /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     func giveIDtoAppDelegate(cardValue:String){
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.set_CardValue(cardValue)
     }
     
+    /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     func evaluateIfCardIsInDataBase(cardValue:String)->Bool{
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         
         let dataCore = appDelegate.coreDataObject
-        let in_cardValue = "\(cardValue)\n"
+        let in_cardValue = cardValue
         
         let retVal = dataCore.evaluateIfInDB("Working_Set", nameOfKey: "tagID", nameOfObject: in_cardValue)
         
@@ -107,18 +115,21 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
             // - 1
             print("Active...")
             // -2
+        
+       
+        
             if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
                 // -3
                 if((string.length == 21) && (string != oldStringVal)){
                     // -4
                     oldStringVal = string
-                    giveIDtoAppDelegate(string as String)
-                    print(string)
-                    print("!!!!!!!!")
-                    
-                    
+                    let sendVal = string as String
+                    giveIDtoAppDelegate(sendVal)
+                    //var cleanString = oldStringVal - "\r\n"
                     let eval = evaluateIfCardIsInDataBase(string as String)
                     
+                    
+                    print("It is \(eval) that the card is in the database.")
                     if( eval == false){
                         print("Unassociated")
                         launchWindow(nameOfWindowIfUnassociated)
@@ -129,27 +140,16 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
                         launchWindow(nameOfWindowIfAssociated)
                     }
                     
-                    
-                    //launchWindow(nameOfWindowIfUnassociated)
-                    
-                    
                 }
             }
     }
-    
-    
-    
-    
     
     /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     func serialPortWasRemovedFromSystem(serialPort: ORSSerialPort) {
         print("Serial port, \(serialPort) was removed from the system.")
     }
     
-    
-    
-    
-    
+
     /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
     func serialPort(serialPort: ORSSerialPort, didEncounterError error: NSError) {
         print("Serial port, \(error) was removed from the system.")
