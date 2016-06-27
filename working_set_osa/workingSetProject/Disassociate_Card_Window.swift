@@ -23,15 +23,19 @@ class Disassociate_Card_Window: NSViewController {
     
     
     @IBAction func OK_Button(sender: AnyObject) {
+        // 1 - Delete "tagID" attribute from object.
         
         
+        // 2 - Close events for window.
+        let application = NSApplication.sharedApplication()
+        application.stopModal()
     }
     
     
     @IBAction func Cancel_Button(sender: AnyObject) {
-        
-        
-        
+        // 1 - Close events for window.
+        let application = NSApplication.sharedApplication()
+        application.stopModal()
     }
     
     

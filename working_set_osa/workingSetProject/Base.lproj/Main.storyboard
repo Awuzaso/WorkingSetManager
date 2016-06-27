@@ -128,6 +128,11 @@
                                                 <action selector="openUserSettingWindow_Button:" target="Voe-Tx-rLC" id="BIT-VG-e9a"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Development:AssociatedCard" keyEquivalent="w" id="p00-TL-KgH">
+                                            <connections>
+                                                <action selector="openDevAssocCardWin:" target="Voe-Tx-rLC" id="imT-dU-fcp"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -308,7 +313,7 @@ Gw
         <!--Window Controller-->
         <scene sceneID="Tta-Xl-5sx">
             <objects>
-                <windowController id="484-ht-E2c" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Dis_Win" id="484-ht-E2c" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Wer-mi-kcp">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>

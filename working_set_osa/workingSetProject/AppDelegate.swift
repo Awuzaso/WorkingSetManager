@@ -116,6 +116,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openWindowObject.runModalWindow()
     }
     
+    
+    @IBAction func openDevAssocCardWin(sender: AnyObject!){
+        // 1 - Setting window object.
+        let openWindowObject = windowManager()
+        openWindowObject.setWindow("Main",nameOfWindowController: "AWindow")
+        // 2 - Initiate the window.
+        openWindowObject.runModalWindow()
+    }
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
