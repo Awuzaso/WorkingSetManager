@@ -132,14 +132,7 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
                     print("It is \(eval) that the card is in the database.")
                     if( eval == false){
                         print("Unassociated")
-                        //launchWindow(nameOfWindowIfUnassociated)
-                        
-                        // 1 - Setting window object.
-                        let openWindowObject = windowManager()
-                        openWindowObject.setWindow("Main",nameOfWindowController: nameOfWindowIfUnassociated)
-                        // 2 - Initiate the window.
-                        openWindowObject.runModalWindow()
-
+                        launchWindow(nameOfWindowIfUnassociated)
                         
                     }
                     else if( eval == true){

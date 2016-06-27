@@ -10,29 +10,6 @@ import Cocoa
 
 
 extension ViewController : NSTableViewDataSource {
-    
-    
-    /*This function is called everytime there is a change in the table view.*/
-    func updateStatus() {
-        // 1 - Get collection of objects from object graph.
-        workingSets = appDelegate.coreDataObject.getDataObjects("Working_Set")
-        
-        // 2 - Set the current selection of working set from table view.
-        let item = workingSets[tableView!.selectedRow]
-        nameOfWS =  launchWindowTable.getItemSelected_String(tableView, managedObjectArray: workingSets, objectAttr: "SmartFOlder")       /*item.valueForKey("smartFOlder") as? String*/
-        
-        // 3 - Change the status label beneath the table view dynamically as selection changes.
-        statusLabel.stringValue = launchWindowTable.getStatusOfItemsSelected(tableView, itemCount: workingSets.count)
-        
-        // 4 - When a working set is seleted from the table view, launch window buttons are then made available to be pressed.
-        switchOnOffButtons(true)
-    }
-
-    
-    
-    
-    
-    
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         
         //1

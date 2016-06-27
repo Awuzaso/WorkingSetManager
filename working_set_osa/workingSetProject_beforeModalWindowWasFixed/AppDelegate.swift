@@ -25,7 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return userPref.get_serialPort(&coreDataObject)
         }
     }
-    
+    //let serialPortObject = SerialPortManager(pathName: "/dev/cu.usbmodem1411",in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+    /*var serialPortObject: SerialPortManager {
+        get{
+            return SerialPortManager(pathName: serialPath,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+        }
+    }*/
     var serialPortObject: SerialPortManager!
     func set_CardValue(value:String){
         cardValue = value
@@ -33,9 +38,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
-            serialPortObject = SerialPortManager(pathName: serialPath/*"/dev/cu.usbmodem1411"*/,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
-            evaluateIfFirstTime()
+                // Insert code here to initialize your application
+        //print("Starting.")
+        
+        serialPortObject = SerialPortManager(pathName: serialPath/*"/dev/cu.usbmodem1411"*/,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+        //print(serialPath)
+       evaluateIfFirstTime()
+        
+        //filePath = userPref.get_fileDirectory(&coreDataObject)
+        //serialPath = userPref.get_serialPort(&coreDataObject)
+        //print(coreDataObject.evaluateIfInDB("Working_Set", nameOfKey: "tagID", nameOfObject: "0x62 0x38 0xAB 0xCA"))
+        
+        //print(coreDataObject.getSingleObjectAttrib("User_Attrib", nameOfKey: "pathToSaveWS"))
+        //print(coreDataObject.getSingleObjectAttrib("User_Attrib", nameOfKey: "serialPortPath"))
     }
     
     func evaluateIfFirstTime(){
@@ -63,7 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Program should evaluate the CoreData object graph for entity UserAttrib.
         
         // Scenario 1: If there are is no user data member for "UserAttrib", it will create a new one.
-            // Launch window associated with "UserAttrib"
+        // Launch window associated with "UserAttrib"
         // Scenario 2: If there is a member, no action needs to be taken.
         
         
@@ -108,12 +123,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     }
     
-    @IBAction func openUserSettingWindow_Button(sender: AnyObject!){
-        // 1 - Setting window object.
-        let openWindowObject = windowManager()
-        openWindowObject.setWindow("Main",nameOfWindowController: "Edit User Settings Window")
-        // 2 - Initiate the window.
-        openWindowObject.runModalWindow()
+    @IBAction func testAct(sender: AnyObject!){
+        // 1
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let openWindowController = storyboard.instantiateControllerWithIdentifier("Edit User Settings Window") as! NSWindowController
+        
+        // 2
+        if let openWS_Window = openWindowController.window{
+            
+            // 3
+            let application = NSApplication.sharedApplication()
+            application.runModalForWindow(openWS_Window)
+        }
+        
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
