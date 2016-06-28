@@ -19,16 +19,15 @@ class Unassociated_Card_Window: NSViewController {
     @IBAction func Associate_WS(sender: AnyObject) {
         
         // 1 - Setting window object.
-        let openWindowObject = windowManager()
-        openWindowObject.setWindow("Main",nameOfWindowController: "Card Link Window")
+            let openWindowObject = windowManager()
+            openWindowObject.setWindow("Main",nameOfWindowController: "Card Link Window")
         // 2 - Initiate the window.
-        openWindowObject.runModalWindow()
+            openWindowObject.runModalWindow()
         
         // 3 - End window events.
-        let application = NSApplication.sharedApplication()
-        application.stopModal()
+            let application = NSApplication.sharedApplication()
+            application.stopModal()
 
-        
     }
     
     

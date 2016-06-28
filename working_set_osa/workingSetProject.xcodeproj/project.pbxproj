@@ -14,6 +14,7 @@
 		4C5D927E1D1D837600972FEB /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D92781D1D837600972FEB /* ORSSerialPortManager.m */; };
 		4C5D927F1D1D837600972FEB /* ORSSerialRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D927A1D1D837600972FEB /* ORSSerialRequest.m */; };
 		4C6E93781D11D01F009C8125 /* Edit_WS_Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */; };
+		4C7090F81D22D98700885D47 /* Card_Link_Window_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7090F71D22D98700885D47 /* Card_Link_Window_Extension.swift */; };
 		4C908F591D07CAD9006CC134 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F581D07CAD9006CC134 /* WindowController.swift */; };
 		4C908F5B1D07CAE2006CC134 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C908F5A1D07CAE2006CC134 /* Directory.swift */; };
 		4C92FB041D1B06BA008BF9DE /* Edit_User_Settings_Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */; };
@@ -54,6 +55,7 @@
 		4C5D927A1D1D837600972FEB /* ORSSerialRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialRequest.m; sourceTree = "<group>"; };
 		4C5D92801D1D84EC00972FEB /* serialPortHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serialPortHeader.h; sourceTree = "<group>"; };
 		4C6E93771D11D01F009C8125 /* Edit_WS_Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_WS_Function.swift; sourceTree = "<group>"; };
+		4C7090F71D22D98700885D47 /* Card_Link_Window_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card_Link_Window_Extension.swift; sourceTree = "<group>"; };
 		4C908F581D07CAD9006CC134 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4C908F5A1D07CAE2006CC134 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		4C92FB031D1B06BA008BF9DE /* Edit_User_Settings_Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit_User_Settings_Window.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				4C92FB0D1D1B1B41008BF9DE /* Card_Link.swift */,
+				4C7090F71D22D98700885D47 /* Card_Link_Window_Extension.swift */,
 			);
 			name = Card_Link_Window;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			files = (
 				4CAEB4C21D0363B300F35870 /* Open_WS_Window.swift in Sources */,
 				4CAEB4BE1D0361B500F35870 /* New_WS_Window.swift in Sources */,
+				4C7090F81D22D98700885D47 /* Card_Link_Window_Extension.swift in Sources */,
 				4C5D927F1D1D837600972FEB /* ORSSerialRequest.m in Sources */,
 				4C5D927B1D1D837600972FEB /* ORSSerialBuffer.m in Sources */,
 				4C92FB221D1C8ADC008BF9DE /* View_Controller_Extension.swift in Sources */,

@@ -8,6 +8,9 @@
 
 import Cocoa
 
+
+var stringVar:String!
+
 class SerialPortManager:NSObject,ORSSerialPortDelegate{
     
     
@@ -121,12 +124,19 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
             if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
                 // -3
                 if((string.length == 21) && (string != oldStringVal)){
+                    
+                    
+                    
+                    
+                    
+                    stringVar = string as String
+                    
                     // -4
                     oldStringVal = string
-                    let sendVal = string as String
+                    let sendVal = (string as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                     giveIDtoAppDelegate(sendVal)
                     //var cleanString = oldStringVal - "\r\n"
-                    let eval = evaluateIfCardIsInDataBase(string as String)
+                    let eval = evaluateIfCardIsInDataBase(sendVal)
                     
                     
                     print("It is \(eval) that the card is in the database.")
@@ -144,6 +154,11 @@ class SerialPortManager:NSObject,ORSSerialPortDelegate{
                     }
                     else if( eval == true){
                         print("Associated")
+                        let openWindowObject = windowManager()
+                        openWindowObject.setWindow("Main",nameOfWindowController: nameOfWindowIfAssociated)
+                        let windowController = openWindowObject.get_windowController()
+                        let viewController = windowController.contentViewController as! Associated_Card_Window
+                        viewController.nameOfWS_title = sendVal
                         launchWindow(nameOfWindowIfAssociated)
                     }
                     
