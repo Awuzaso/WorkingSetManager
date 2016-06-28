@@ -201,23 +201,22 @@ extension dataCore{
     }
     
     ////////////////////////////////////////////////////////////
-    /*Used to add to the persistent store of the entity,*/
+    /*Used to add new objects to the persistent store of a given entity.*/
     func addEntityObject(nameOfEntity: String, nameOfKey: String, nameOfObject: String){
         
-        var workingSets = [NSManagedObject]() //Stores instances of entity 'Working-Set'
+        // 1 - Create an instance of NSEntity Description
+            let specified_entity = NSEntityDescription.entityForName(nameOfEntity, inManagedObjectContext: self.managedObjectContext)
         
-        //1
-        let specified_entity = NSEntityDescription.entityForName(nameOfEntity, inManagedObjectContext: self.managedObjectContext)
+        // 2 - Create new object for entity description and insert it within the entity.
+            let new_object = NSManagedObject(entity: specified_entity!, insertIntoManagedObjectContext: self.managedObjectContext)
         
-        let new_object = NSManagedObject(entity: specified_entity!, insertIntoManagedObjectContext: self.managedObjectContext)
-        
-        //2
-        new_object.setValue(nameOfObject, forKey: nameOfKey)
+        // 3 - Set value of new object.
+            new_object.setValue(nameOfObject, forKey: nameOfKey)
     
-        //3
-        self.saveManagedContext()
+        // 4 - Save the object.
+            self.saveManagedContext()
         
-        workingSets.append(new_object)
+        
     }
     
     // - MARK: Functions for single objects represented within a database.
@@ -261,7 +260,6 @@ extension dataCore{
         //3
         do{
             
-            
             let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
             
             for managedObject in result {
@@ -285,7 +283,7 @@ extension dataCore{
         
         
         //1
-        var objectCollection = [NSManagedObject]()
+       
         
         //2
         let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
@@ -311,11 +309,54 @@ extension dataCore{
     }
     
     
+    
+    func editEntity(result:[AnyObject],newAttrKey:String,newAttr:String){
+        // 1 - Loop through array of 'result'.
+            for managedObject in result {
+                
+                // 2 - Set value for 'newAttrKey' with 'newAttr'.
+                    managedObject.setValue(newAttr, forKey: newAttrKey)
+                // 3 - Save changes to persistent store.
+                    self.saveManagedContext()
+            }
+    }
+    
+    func new_editEntityObject(nameOfEntity: String, nameOfSearchKey: String, searchAttr:String, newAttrKey:String ,newAttr: String){
+        // 1 - Get fetch request
+        print("Hello!")
+        print("Name of entity is, \(nameOfEntity).")
+        print("Name of search key is, \(nameOfSearchKey).")
+        print("Name of search attribute is, \(searchAttr)")
+            let fetchRequest = get_fetchRequest(nameOfEntity, nameOfKey: nameOfSearchKey, nameOfObject: searchAttr)
+        print("Goodbye!")
+        // 2 - Get array of NSAnyObject
+            let result = get_result(fetchRequest)
+        print("Crashed?")
+        // 3 - Edit attribute of object.
+           // editEntity(result, newAttrKey: newAttrKey, newAttr: newAttr)
+        
+    }
+    
+    /*Used to get a fetch request object as per arguments.*/
+    func get_fetchRequest(nameOfEntity: String, nameOfKey: String, nameOfObject: String)->NSFetchRequest{
+        print("Name of entity is, \(nameOfEntity).")
+        print("Name of search key is, \(nameOfKey).")
+        print("Name of search attribute is, \(nameOfObject)")
+        // 1 - Generate 'fetchRequest' object.
+        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        
+        // 2 - Specify predicate for 'fetchRequest' object.
+        let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
+        fetchRequest.predicate = predicate
+        
+        // 3 - Return 'fetchRequest' object.
+        return fetchRequest
+    }
+    
     func setValueOfEntityObject(nameOfEntity: String, nameOfKey: String, oldName:String, editName: String){
         
         
-        //1
-        var objectCollection = [NSManagedObject]()
+      
         
         //2
         let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
@@ -340,61 +381,75 @@ extension dataCore{
             print(fetchError)
         }
     }
-    ////////////////////////////////////////////////////////////
+ 
+    
     /*Used to delete specified objects of a specified entity.*/
     func deleteEntityObject(nameOfEntity: String, nameOfKey: String, nameOfObject: String){
         
+        // 1 - Get fetch request
+            let fetchRequest = get_fetchRequest(nameOfEntity, nameOfKey: nameOfKey, nameOfObject: nameOfObject)
         
-        //1 - Fetching
-        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        // 2 = Get array of NSAnyObject
+            let result = get_result(fetchRequest)
         
-        
-        //2 - Predicate
-        let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
-        fetchRequest.predicate = predicate
-        
-        //3 - Execute Fetch Request
-        do{
-            
-            
-            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            
-            for managedObject in result {
-                
-                self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
-                self.saveManagedContext()
-              
-            }
-        } catch{
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-        
+        // 3 - Delete result
+            deleteFromEntity(result)
         
     }
     
+    
+    
+    
+    
+    
+    
+    /*Used to get resulting array of objects from CoreData  as specified by 'fetchRequest'.*/
+    func get_result(fetchRequest:NSFetchRequest)->[AnyObject]{
+        // 1 - Generate 'result' array of type, AnyObject.
+            var result = [AnyObject]!()
+        
+        // 2 - Populate array of 'result'.
+            do{
+                
+                result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+                
+                
+            } catch{
+                let fetchError = error as NSError
+                print(fetchError)
+            }
+        
+        // 3 - Return array of 'result'.
+            return result
+    }
+    
+    
+    
+    /*Used to delete objects specified by 'result' from a given entity.*/
+    func deleteFromEntity(result:[AnyObject]){
+        // 1 - Loop through array of 'result'.
+            for managedObject in result {
+                // 2 - Delete specified object from entity.
+                    self.managedObjectContext.deleteObject(managedObject as! NSManagedObject)
+                // 3 - Save changes to persistent store.
+                    self.saveManagedContext()
+            }
+    }
+    
+    
+    
+    
+    /*Used to evaluate if a specified object is within an entity's object graph.*/
     func evaluateIfInDB(nameOfEntity: String, nameOfKey: String, nameOfObject: String)->Bool{
         var evalVal: Bool!
         
-        //1 - Fetching
-        let fetchRequest = NSFetchRequest(entityName: nameOfEntity)
+        // 1 - Fetching
+             let fetchRequest = get_fetchRequest(nameOfEntity, nameOfKey: nameOfKey, nameOfObject: nameOfObject)
         
+        // 2 - Get array of NSAnyObject
+            let result = get_result(fetchRequest)
         
-        //2 - Predicate
-        print(nameOfKey)
-        print(nameOfEntity)
-        print(nameOfObject)
-        let predicate = NSPredicate(format: "%K == %@",nameOfKey,nameOfObject)
-        fetchRequest.predicate = predicate
-        
-        //3 - Execute Fetch Request
-        do{
-            
-            
-            let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-            print(result)
-            print(result.count)
-            result.count
+        // 3 - Evaluate.
             if(result.count == 0){
                 
                 evalVal = false
@@ -402,14 +457,9 @@ extension dataCore{
             else{
                 evalVal = true
             }
-            
-        } catch{
-            let fetchError = error as NSError
-            print(fetchError)
-        }
         
-        return evalVal
-        
+        // 4 - Return 'evalVal'.
+            return evalVal
     }
     
     

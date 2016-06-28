@@ -59,7 +59,8 @@ class Card_Link_Window: NSViewController {
         
         // 2 - Associate the cardID with the chosen working set from the menu
             dataCore.setValueOfEntityObject("Working_Set", nameOfKey: "tagID", oldName: nameOfWS, editName: cardID)
-        
+        //print("Making association.")
+            //dataCore.new_editEntityObject("Working_Set", nameOfSearchKey: "SmartFOlder", searchAttr: nameOfWS, newAttrKey: "tagID", newAttr: cardID)
         // 3 - End events for window.
             let application = NSApplication.sharedApplication()
             application.stopModal()

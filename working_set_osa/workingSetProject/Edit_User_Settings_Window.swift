@@ -43,13 +43,13 @@ class Edit_User_Settings_Window: NSViewController {
         let selectedIndex = Serial_Port_Label.indexOfSelectedItem
         let port = Serial_Port_Label.itemTitleAtIndex(selectedIndex)
         let portPath = "/dev/cu."+port
-        print(portPath)
+        //print(portPath)
         userPref.set_fileDirectory(&dataCore, filePath: File_Directory_Label.stringValue)
         userPref.set_serialPort(&dataCore, portPath: portPath)
         
         
         //Test if it works:
-        print(dataCore.getSingleObjectAttrib("User_Attrib", nameOfKey: "pathToSaveWS"))
+        //print(dataCore.getSingleObjectAttrib("User_Attrib", nameOfKey: "pathToSaveWS"))
         //print(dataCore.getSingleObjectAttrib("User_Attrib", nameOfKey: "serialPortPath"))
         
         let application = NSApplication.sharedApplication()

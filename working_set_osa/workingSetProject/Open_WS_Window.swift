@@ -13,6 +13,10 @@ class Open_WS_Window: NSViewController {
     let openWindowObject = windowManager()
     
     var managedObjectContext: NSManagedObjectContext!
+    
+    let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+    
+    
     var filePath: String = "/Users/Osa/Desktop/"
     
     @IBOutlet weak var nameOfWS: NSTextField!
@@ -25,7 +29,9 @@ class Open_WS_Window: NSViewController {
     
     
     @IBAction func dismissOpenWindow(sender: NSButton) {
-        openWindowObject.openWindow(filePath ,nameOfFile: nameOfWS.stringValue)
+        let n_path = appDelegate.coreDataObject.getSingleObjectAttrib("User_Attrib", nameOfKey: "pathToSaveWS")
+        let path = "\(n_path)"
+        openWindowObject.openWindow(path ,nameOfFile: nameOfWS.stringValue)
         openWindowObject.setWindow()
     }
     

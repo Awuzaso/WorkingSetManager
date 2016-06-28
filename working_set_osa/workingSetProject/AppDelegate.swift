@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-            serialPortObject = SerialPortManager(pathName: serialPath/*"/dev/cu.usbmodem1411"*/,in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
+            serialPortObject = SerialPortManager(pathName: /*serialPath*/"/dev/cu.usbmodem1411",in_nameOfStoryBoard: "Main" ,in_nameOfWinUnAssoc:"UAWindow",  in_nameOfWinAssoc: "AWindow")
             evaluateIfFirstTime()
     }
     
